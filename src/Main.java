@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
-
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 public class Main {
 
     static ArrayList<Movie> movies = new ArrayList<>();
@@ -24,16 +26,16 @@ public class Main {
             scanner.nextLine();
 
             switch (choice) {
-                case 1 -> addMovie();
-                case 2 -> rateMovie();
-                case 3 -> reviewMovie();
-                case 4 -> showMovies();
-                case 5 -> {
+                case 1 : addMovie();
+                case 2 :rateMovie();
+                case 3 : reviewMovie();
+                case 4 : showMovies();
+                case 5 : {
                     saveToJson();
                     System.out.println("Данните са запазени. Довиждане!");
                     return;
                 }
-                default -> System.out.println("Грешен избор!");
+                default : System.out.println("Грешен избор!");
             }
         }
     }
@@ -125,19 +127,11 @@ public class Main {
     }
 
     // JSON Save
+
     static void saveToJson() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
-            writer.println("[");
-            for (int i = 0; i < movies.size(); i++) {
-                Movie m = movies.get(i);
-                writer.print("  {\"title\":\"" + escape(m.title) +
-                        "\",\"genre\":\"" + escape(m.genre) +
-                        "\",\"year\":" + m.year +
-                        ",\"rating\":" + m.rating +
-                        ",\"review\":\"" + escape(m.review) + "\"}");
-                if (i < movies.size() - 1) writer.println(",");
-            }
-            writer.println("\n]");
+        try (Writer writer = new FileWriter(FILE_NAME)) {
+            Gson gson = new Gson();
+            gson.toJson(movies, writer);
         } catch (IOException e) {
             System.out.println("Грешка при запис!");
         }
@@ -148,66 +142,40 @@ public class Main {
         File file = new File(FILE_NAME);
         if (!file.exists()) return;
 
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line, json = "";
-            while ((line = br.readLine()) != null) json += line;
-
-            json = json.replace("[", "").replace("]", "");
-            if (json.trim().isEmpty()) return;
-
-            String[] objects = json.split("\\},\\{");
-
-            for (String obj : objects) {
-                obj = obj.replace("{", "").replace("}", "");
-
-                String[] parts = obj.split(",");
-                String title = "", genre = "", review = "";
-                int year = 0;
-                double rating = 0;
-
-                for (String p : parts) {
-                    if (p.contains("\"title\"")) title = p.split(":")[1].replace("\"", "");
-                    else if (p.contains("\"genre\"")) genre = p.split(":")[1].replace("\"", "");
-                    else if (p.contains("\"year\"")) year = Integer.parseInt(p.split(":")[1]);
-                    else if (p.contains("\"rating\"")) rating = Double.parseDouble(p.split(":")[1]);
-                    else if (p.contains("\"review\"")) review = p.split(":")[1].replace("\"", "");
-                }
-
-                Movie m = new Movie(title, genre, year);
-                m.rating = rating;
-                m.review = review;
-                movies.add(m);
-            }
-
+        try (Reader reader = new FileReader(file)) {
+            Gson gson = new Gson();
+            Type listType = new TypeToken<ArrayList<Movie>>() {
+            }.getType();
+            movies = gson.fromJson(reader, listType);
+            if (movies == null) movies = new ArrayList<>();
         } catch (Exception e) {
             System.out.println("Грешка при зареждане.");
         }
     }
 
-    static String escape(String s) {
-        return s.replace("\"", "\\\"");
-    }
-}
 
-// Movie class
-class Movie {
-    String title;
-    String genre;
-    int year;
-    double rating;
-    String review;
+    // Movie class
+    static class Movie {
+        String title;
+        String genre;
+        int year;
+        double rating;
+        String review;
 
-    Movie(String title, String genre, int year) {
-        this.title = title;
-        this.genre = genre;
-        this.year = year;
-        this.rating = 0;
-        this.review = "";
+        Movie(String title, String genre, int year) {
+            this.title = title;
+            this.genre = genre;
+            this.year = year;
+            this.rating = 0;
+            this.review = "";
+
+        }
+
+        public String toString() {
+            return title + " (" + year + ")\nЖанр: " + genre +
+                    "\nРейтинг: " + (rating == 0 ? "няма" : rating) +
+                    "\nРевю: " + (review.isEmpty() ? "няма" : review);
+        }
     }
 
-    public String toString() {
-        return  title + " (" + year + ")\nЖанр: " + genre +
-                "\nРейтинг: " + (rating == 0 ? "няма" : rating) +
-                "\nРевю: " + (review.isEmpty() ? "няма" : review);
-    }
 }
