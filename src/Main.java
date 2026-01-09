@@ -3,6 +3,7 @@ import java.util.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+import com.google.gson.GsonBuilder;
 public class Main {
 
     static ArrayList<Movie> movies = new ArrayList<>();
@@ -130,7 +131,11 @@ public class Main {
 
     static void saveToJson() {
         try (Writer writer = new FileWriter(FILE_NAME)) {
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder()
+                    .setPrettyPrinting()
+                    .create();
+
+
             gson.toJson(movies, writer);
         } catch (IOException e) {
             System.out.println("Грешка при запис!");
