@@ -1,4 +1,30 @@
 [
-  {"title":"Dune","genre":"sci-fi","year":2021,"rating":8.0,"review":""},
-  {"title":"I origins","genre":"drama","year":2014,"rating":0.0,"review":""}
+    {
+        "metadata": {
+          "title": "Test",
+          "genre": "asdsa",
+          "year": 21312
+        },
+        "reviews": {
+          "Pavlin": {
+            "rating": 5,
+            "review": "asdasd"
+          },
+          "Juliet": {
+            "rating": 4,
+            "review": "asdasd"
+          },
+          "Bat Boiko": {
+            "rating": 3,
+            "review": "asdasd"
+          }
+        }
+    },
+    {
+        "title": "asdsad",
+        "genre": "asdsa",
+        "year": 123,
+        "rating": 0,
+        "review": ""
+    }
 ]

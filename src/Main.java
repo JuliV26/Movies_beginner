@@ -127,9 +127,12 @@ public class Main {
     // JSON Save
     static void saveToJson() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
+            System.out.println("Movies before save: " + movies);
             writer.println("[");
             for (int i = 0; i < movies.size(); i++) {
                 Movie m = movies.get(i);
+                System.out.println("Saving movie: " + m.title);
+                System.out.println("Movies i: " + i + " of " + movies.size());
                 writer.print("  {\"title\":\"" + escape(m.title) +
                         "\",\"genre\":\"" + escape(m.genre) +
                         "\",\"year\":" + m.year +
@@ -152,10 +155,24 @@ public class Main {
             String line, json = "";
             while ((line = br.readLine()) != null) json += line;
 
-            json = json.replace("[", "").replace("]", "");
-            if (json.trim().isEmpty()) return;
+            json = json.replace("[", "").replace("]", "").trim();
+            if (json.isEmpty()) return;
 
-            String[] objects = json.split("\\},\\{");
+            String[] objects;
+            if (json.contains("},{")) {
+                objects = json.split("\\},\\{");
+                for (int i = 0; i < objects.length; i++) {
+                    if (i == 0) {
+                        objects[i] = objects[i] + "}";
+                    } else if (i == objects.length - 1) {
+                        objects[i] = "{" + objects[i];
+                    } else {
+                        objects[i] = "{" + objects[i] + "}";
+                    }
+                }
+            } else {
+                objects = new String[]{json};
+            }
 
             for (String obj : objects) {
                 obj = obj.replace("{", "").replace("}", "");
@@ -178,6 +195,7 @@ public class Main {
                 m.review = review;
                 movies.add(m);
             }
+            System.out.println("Movies after load: " + movies);
 
         } catch (Exception e) {
             System.out.println("Грешка при зареждане.");
