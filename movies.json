@@ -1,37 +1,43 @@
 [
   {
-    "title": "Dune",
-    "genre": "sci-fi",
-    "year": 2021,
-    "rating": 9.9,
-    "review": ""
+    "metadata": {
+      "title": "The hunger games ",
+      "genre": "action",
+      "year": 2012
+    },
+    "reviews": [
+      {
+        "username": "Juliet",
+        "rating": 9.0,
+        "review": ""
+      },
+      {
+        "username": "Juliet",
+        "rating": 0.0,
+        "review": "a great dystopian adaptation to the original books"
+      }
+    ]
   },
   {
-    "title": "I origins",
-    "genre": "drama",
-    "year": 2014,
-    "rating": 0.0,
-    "review": ""
+    "metadata": {
+      "title": "Interstellar",
+      "genre": "sci-fi",
+      "year": 2014
+    },
+    "reviews": [
+      {
+        "username": "Juliet",
+        "rating": 8.7,
+        "review": ""
+      }
+    ]
   },
   {
-    "title": "Memento",
-    "genre": "thriller",
-    "year": 2000,
-    "rating": 3.0,
-    "review": "The plot is centred around a man who is seeking vengeance for his dead wife but there is a problem: he is unable to form new memories and he forgets everything he discovers."
-  },
-  {
-    "title": "Inception",
-    "genre": "action",
-    "year": 2010,
-    "rating": 0.0,
-    "review": ""
-  },
-  {
-    "title": "Memento",
-    "genre": "thriller",
-    "year": 2000,
-    "rating": 0.0,
-    "review": ""
+    "metadata": {
+      "title": "Dune",
+      "genre": "sci-fi",
+      "year": 2021
+    },
+    "reviews": []
   }
 ]
