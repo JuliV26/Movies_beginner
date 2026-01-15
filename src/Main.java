@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import com.google.gson.GsonBuilder;
+
 public class Main {
 
     static ArrayList<Movie> movies = new ArrayList<>();
@@ -27,21 +28,30 @@ public class Main {
             scanner.nextLine();
 
             switch (choice) {
-                case 1 : addMovie();
-                case 2 :rateMovie();
-                case 3 : reviewMovie();
-                case 4 : showMovies();
-                case 5 : {
+                case 1:
+                    addMovie();
+                    break;
+                case 2:
+                    rateMovie();
+                    break;
+                case 3:
+                    reviewMovie();
+                    break;
+                case 4:
+                    showMovies();
+                    break;
+                case 5: {
                     saveToJson();
                     System.out.println("Данните са запазени. Довиждане!");
                     return;
                 }
-                default : System.out.println("Грешен избор!");
+                default:
+                    System.out.println("Грешен избор!");
             }
         }
     }
 
-    //  Добавяне
+    //  Добавяне на филм
     static void addMovie() {
         System.out.print("Име на филма: ");
         String title = scanner.nextLine();
@@ -53,12 +63,20 @@ public class Main {
         int year = scanner.nextInt();
         scanner.nextLine();
 
-        movies.add(new Movie(title, genre, year));
+
+        Metadata metadata = new Metadata(title, genre, year);
+
+
+        Movie movie = new Movie(metadata);
+
+
+        movies.add(movie);
+
         saveToJson();
         System.out.println("Филмът е добавен!");
     }
 
-    //  Рейтинг
+    //  Добавяне на рейтинг
     static void rateMovie() {
         if (movies.isEmpty()) {
             System.out.println("Няма филми.");
@@ -75,16 +93,22 @@ public class Main {
             return;
         }
 
+        System.out.print("Въведи своето потребителско име: ");
+        String username = scanner.nextLine();
+
         System.out.print("Оцени от (0-10): ");
         double rating = scanner.nextDouble();
         scanner.nextLine();
 
-        movies.get(index).rating = rating;
+
+        Review review = new Review(username, rating, "");
+        movies.get(index).reviews.add(review);
+
         saveToJson();
         System.out.println("Рейтингът е записан!");
     }
 
-    //  Ревю
+    //  Добавяне на ревю
     static void reviewMovie() {
         if (movies.isEmpty()) {
             System.out.println("Няма филми.");
@@ -101,15 +125,19 @@ public class Main {
             return;
         }
 
-        System.out.print("Напиши ревю: ");
-        String review = scanner.nextLine();
+        System.out.print("Въведи своето потребителско име: ");
+        String username = scanner.nextLine();
 
-        movies.get(index).review = review;
+        System.out.print("Напиши ревю: ");
+        String reviewText = scanner.nextLine();
+
+
+
         saveToJson();
         System.out.println("Ревюто е записано!");
     }
 
-    // Показване
+    // Показване на всички филми
     static void showMovies() {
         if (movies.isEmpty()) {
             System.out.println("Няма филми.");
@@ -121,21 +149,19 @@ public class Main {
         }
     }
 
+
     static void showMovieTitles() {
         for (int i = 0; i < movies.size(); i++) {
-            System.out.println((i + 1) + ". " + movies.get(i).title);
+            System.out.println((i + 1) + ". " + movies.get(i).metadata.title);
         }
     }
 
     // JSON Save
-
     static void saveToJson() {
         try (Writer writer = new FileWriter(FILE_NAME)) {
             Gson gson = new GsonBuilder()
                     .setPrettyPrinting()
                     .create();
-
-
             gson.toJson(movies, writer);
         } catch (IOException e) {
             System.out.println("Грешка при запис!");
@@ -149,8 +175,7 @@ public class Main {
 
         try (Reader reader = new FileReader(file)) {
             Gson gson = new Gson();
-            Type listType = new TypeToken<ArrayList<Movie>>() {
-            }.getType();
+            Type listType = new TypeToken<ArrayList<Movie>>() {}.getType();
             movies = gson.fromJson(reader, listType);
             if (movies == null) movies = new ArrayList<>();
         } catch (Exception e) {
@@ -158,29 +183,56 @@ public class Main {
         }
     }
 
-
-    // Movie class
-    static class Movie {
+    // Metadata class-данните за филмите
+    static class Metadata {
         String title;
         String genre;
         int year;
-        double rating;
-        String review;
 
-        Movie(String title, String genre, int year) {
+        Metadata(String title, String genre, int year) {
             this.title = title;
             this.genre = genre;
             this.year = year;
-            this.rating = 0;
-            this.review = "";
-
-        }
-
-        public String toString() {
-            return title + " (" + year + ")\nЖанр: " + genre +
-                    "\nРейтинг: " + (rating == 0 ? "няма" : rating) +
-                    "\nРевю: " + (review.isEmpty() ? "няма" : review);
         }
     }
 
+    // Review class
+    static class Review {
+        String username;
+        double rating;
+        String review;
+
+        Review(String username, double rating, String review) {
+            this.username = username;
+            this.rating = rating;
+            this.review = review;
+        }
+    }
+
+    // Movie class
+    static class Movie {
+        Metadata metadata;
+        ArrayList<Review> reviews;
+
+        Movie(Metadata metadata) {
+            this.metadata = metadata;
+            this.reviews = new ArrayList<>();
+        }
+  // напомняне- append добавя текст в края на вече съществуващо съдържание
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            sb.append(metadata.title + " (" + metadata.year + ")\n");
+            sb.append("Жанр: " + metadata.genre + "\n");
+
+            if (reviews.isEmpty()) {
+                sb.append("Ревюта: няма");
+            } else {
+                sb.append("Ревюта:\n");
+                for (Review r : reviews) {
+                    sb.append("- " + r.username + ": " + r.rating + " - " + r.review + "\n");
+                }
+            }
+            return sb.toString();
+        }
+    }
 }
