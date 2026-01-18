@@ -39,5 +39,19 @@
       "year": 2021
     },
     "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Mission Impossible",
+      "genre": "Action",
+      "year": 2006
+    },
+    "reviews": [
+      {
+        "username": "Pavlin",
+        "rating": 8.2,
+        "review": ""
+      }
+    ]
   }
 ]
