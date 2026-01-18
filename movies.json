@@ -53,5 +53,409 @@
         "review": ""
       }
     ]
+  },
+  {
+    "metadata": {
+      "title": "Inception",
+      "genre": "sci-fi",
+      "year": 2010
+    },
+    "reviews": [
+      {
+        "username": "Pavlin",
+        "rating": 9.1,
+        "review": ""
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "year": 2008
+    },
+    "reviews": [
+      {
+        "username": "Pavlin",
+        "rating": 9.5,
+        "review": ""
+      }
+    ]
+  },
+  {
+    "metadata": {
+      "title": "Avatar",
+      "genre": "sci-fi",
+      "year": 2009
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Matrix",
+      "genre": "sci-fi",
+      "year": 1999
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Gladiator",
+      "genre": "Action",
+      "year": 2000
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Mad Max: Fury Road",
+      "genre": "Action",
+      "year": 2015
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Star Wars: The Force Awakens",
+      "genre": "sci-fi",
+      "year": 2015
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Jurassic Park",
+      "genre": "sci-fi",
+      "year": 1993
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Avengers",
+      "genre": "Action",
+      "year": 2012
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Titanic",
+      "genre": "Drama",
+      "year": 1997
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Shawshank Redemption",
+      "genre": "Drama",
+      "year": 1994
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Forrest Gump",
+      "genre": "Drama",
+      "year": 1994
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Godfather",
+      "genre": "Drama",
+      "year": 1972
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Pulp Fiction",
+      "genre": "Drama",
+      "year": 1994
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Lord of the Rings: The Return of the King",
+      "genre": "Fantasy",
+      "year": 2003
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "genre": "Fantasy",
+      "year": 2001
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "genre": "Fantasy",
+      "year": 2005
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "genre": "Fantasy",
+      "year": 2003
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Hobbit: An Unexpected Journey",
+      "genre": "Fantasy",
+      "year": 2012
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Fight Club",
+      "genre": "Drama",
+      "year": 1999
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Goodfellas",
+      "genre": "Crime",
+      "year": 1990
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Silence of the Lambs",
+      "genre": "Thriller",
+      "year": 1991
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Saving Private Ryan",
+      "genre": "War",
+      "year": 1998
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Schindler's List",
+      "genre": "History",
+      "year": 1993
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Green Mile",
+      "genre": "Fantasy",
+      "year": 1999
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Se7en",
+      "genre": "Thriller",
+      "year": 1995
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Usual Suspects",
+      "genre": "Crime",
+      "year": 1995
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Braveheart",
+      "genre": "History",
+      "year": 1995
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Terminator 2: Judgment Day",
+      "genre": "sci-fi",
+      "year": 1991
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Alien",
+      "genre": "sci-fi",
+      "year": 1979
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Blade Runner",
+      "genre": "sci-fi",
+      "year": 1982
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Back to the Future",
+      "genre": "sci-fi",
+      "year": 1985
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Shining",
+      "genre": "Horror",
+      "year": 1980
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Apocalypse Now",
+      "genre": "War",
+      "year": 1979
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "2001: A Space Odyssey",
+      "genre": "sci-fi",
+      "year": 1968
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "A Clockwork Orange",
+      "genre": "sci-fi",
+      "year": 1971
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Taxi Driver",
+      "genre": "Drama",
+      "year": 1976
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Reservoir Dogs",
+      "genre": "Crime",
+      "year": 1992
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Departed",
+      "genre": "Crime",
+      "year": 2006
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "No Country for Old Men",
+      "genre": "Thriller",
+      "year": 2007
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Inglourious Basterds",
+      "genre": "War",
+      "year": 2009
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Django Unchained",
+      "genre": "Western",
+      "year": 2012
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "The Prestige",
+      "genre": "Thriller",
+      "year": 2006
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Memento",
+      "genre": "Thriller",
+      "year": 2000
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Eternal Sunshine of the Spotless Mind",
+      "genre": "Romance",
+      "year": 2004
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Amélie",
+      "genre": "Romance",
+      "year": 2001
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Pan's Labyrinth",
+      "genre": "Fantasy",
+      "year": 2006
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "City of God",
+      "genre": "Crime",
+      "year": 2002
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Oldboy",
+      "genre": "Thriller",
+      "year": 2003
+    },
+    "reviews": []
   }
 ]
