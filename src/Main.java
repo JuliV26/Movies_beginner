@@ -147,7 +147,7 @@ public class Main {
         while (true) {
 
             List<Movie> page = paginateList(movies, currentPage, pageSize);
-          
+
             if (page.isEmpty()) {
                 System.out.println("Няма повече страници.");
                 return;
