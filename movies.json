@@ -188,7 +188,7 @@
   },
   {
     "metadata": {
-      "title": "Harry Potter and the Sorcerer's Stone",
+      "title": "Harry Potter and the Sorcerer\u0027s Stone",
       "genre": "Fantasy",
       "year": 2001
     },
@@ -252,7 +252,7 @@
   },
   {
     "metadata": {
-      "title": "Schindler's List",
+      "title": "Schindler\u0027s List",
       "genre": "History",
       "year": 1993
     },
@@ -436,7 +436,7 @@
   },
   {
     "metadata": {
-      "title": "Pan's Labyrinth",
+      "title": "Pans Labyrinth",
       "genre": "Fantasy",
       "year": 2006
     },
@@ -457,5 +457,19 @@
       "year": 2003
     },
     "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Arrietty",
+      "genre": "fantasy",
+      "year": 2010
+    },
+    "reviews": [
+      {
+        "username": "Juliet",
+        "rating": 8.0,
+        "review": ""
+      }
+    ]
   }
 ]

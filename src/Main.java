@@ -11,6 +11,8 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static final String FILE_NAME = "movies.json";
 
+
+
     public static void main(String[] args) {
 
         loadFromJson();
@@ -63,12 +65,8 @@ public class Main {
         int year = scanner.nextInt();
         scanner.nextLine();
 
-
         Metadata metadata = new Metadata(title, genre, year);
-
-
         Movie movie = new Movie(metadata);
-
 
         movies.add(movie);
 
@@ -131,30 +129,78 @@ public class Main {
         System.out.print("Напиши ревю: ");
         String reviewText = scanner.nextLine();
 
-
-
         saveToJson();
         System.out.println("Ревюто е записано!");
     }
 
     // Показване на всички филми
     static void showMovies() {
+
         if (movies.isEmpty()) {
             System.out.println("Няма филми.");
             return;
         }
 
-        for (int i = 0; i < movies.size(); i++) {
-            System.out.println("\n" + (i + 1) + ". " + movies.get(i));
-        }
-    }
+        int pageSize =10;
+        int currentPage = 1;
 
+        while (true) {
+
+            List<Movie> page = paginateList(movies, currentPage, pageSize);
+
+            if (page.isEmpty()) {
+                System.out.println("Няма повече страници.");
+                return;
+            }
+
+            System.out.println("\n Страница " + currentPage );
+
+            for (int i = 0; i < page.size(); i++) {
+                System.out.println(page.get(i));
+            }
+
+            System.out.println("\n" + " n Следваща | p Предишна ");
+            System.out.print("Избор: ");
+            String input = scanner.nextLine().toLowerCase();
+
+            if (input.equals("n")) {
+                currentPage++;
+
+            } else if (input.equals("p")) {
+
+                if (currentPage > 1) {
+                    currentPage--;
+                } else {
+                    System.out.println("Това е първата страница.");
+                }
+
+
+            } else {System.out.println("Невалиден избор.");
+            }
+        }
+
+    }
+    // Pagination
+    public static <T> List<T> paginateList(List<T> fullList, int pageNumber, int pageSize) {
+        int offset = (pageNumber - 1) * pageSize;
+        int limit_offset = Math.min(offset + pageSize, fullList.size());
+
+        if (offset >= fullList.size() || offset < 0) {
+            return Collections.emptyList();
+        }
+
+        return fullList.subList(offset, limit_offset);
+    }
 
     static void showMovieTitles() {
         for (int i = 0; i < movies.size(); i++) {
             System.out.println((i + 1) + ". " + movies.get(i).metadata.title);
         }
     }
+
+
+
+
 
     // JSON Save
     static void saveToJson() {
@@ -218,6 +264,8 @@ public class Main {
             this.metadata = metadata;
             this.reviews = new ArrayList<>();
         }
+
+
   // напомняне- append добавя текст в края на вече съществуващо съдържание
         public String toString() {
             StringBuilder sb = new StringBuilder();
@@ -227,12 +275,16 @@ public class Main {
             if (reviews.isEmpty()) {
                 sb.append("Ревюта: няма");
             } else {
-                sb.append("Ревюта:\n");
+                sb.append("Ревюта:");
                 for (Review r : reviews) {
-                    sb.append("- " + r.username + ": " + r.rating + " - " + r.review + "\n");
+                    sb.append("- " + r.username + ": " + r.rating + " - " + r.review );
                 }
             }
-            return sb.toString();
+            return sb.toString() + "\n";
         }
+
+
     }
+
 }
+
