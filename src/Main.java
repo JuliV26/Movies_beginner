@@ -145,9 +145,9 @@ public class Main {
         int currentPage = 1;
 
         while (true) {
-            //„Вземи само една страница от всички филми и я сложи в променливата page.“
+
             List<Movie> page = paginateList(movies, currentPage, pageSize);
-            //нов списък, който съдържа само филмите за тази страница
+          
             if (page.isEmpty()) {
                 System.out.println("Няма повече страници.");
                 return;
