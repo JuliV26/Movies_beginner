@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="83779a91-59cb-4b32-9150-b324cf51ae00" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies.json" beforeDir="false" afterPath="$PROJECT_DIR$/movies.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1768480137365</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="pagination">
+      <created>1769169393854</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769169393854</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -117,7 +123,8 @@
     <MESSAGE value="json fixed" />
     <MESSAGE value="json fixed 2" />
     <MESSAGE value="metadata+reviews &amp; ratings+json" />
-    <option name="LAST_COMMIT_MESSAGE" value="metadata+reviews &amp; ratings+json" />
+    <MESSAGE value="pagination" />
+    <option name="LAST_COMMIT_MESSAGE" value="pagination" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
