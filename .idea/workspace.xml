@@ -17,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="nov_json" />
+        <entry key="$PROJECT_DIR$" value="prettify_json" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,7 +47,8 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/netbeans/java/maven/lib/gson-2.13.1.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
 }</component>
   <component name="RunManager">
@@ -101,13 +102,25 @@
       <option name="project" value="LOCAL" />
       <updated>1767972817416</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="metadata+reviews &amp; ratings+json">
+      <created>1768480137365</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1768480137365</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1 try" />
     <MESSAGE value="json fixed" />
     <MESSAGE value="json fixed 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="json fixed 2" />
+    <MESSAGE value="metadata+reviews &amp; ratings+json" />
+    <option name="LAST_COMMIT_MESSAGE" value="metadata+reviews &amp; ratings+json" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
