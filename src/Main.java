@@ -125,10 +125,12 @@ public class Main {
         System.out.print("Парола: ");
         String password = scanner.nextLine();
 
-
-        for (User u : users) {
+        for (int i = 0; i < users.size(); i++) {
+            User u = users.get(i);
             if (u.name.equals(name) && u.password.equals(password)) {
+
                 System.out.println("Успешен вход!");
+
                 return true;
             }
         }
@@ -136,6 +138,8 @@ public class Main {
         System.out.println("Грешно име или парола!");
         return false;
     }
+
+      ;
 
 
     //  Добавяне на филм
