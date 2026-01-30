@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83779a91-59cb-4b32-9150-b324cf51ae00" name="Changes" comment="">
+    <list default="true" id="83779a91-59cb-4b32-9150-b324cf51ae00" name="Changes" comment="review_rate+login/register1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies.json" beforeDir="false" afterPath="$PROJECT_DIR$/movies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,16 +15,24 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="metadata_review" />
+        <entry key="$PROJECT_DIR$" value="register" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;JuliV26&quot;
-  }
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOQ2n3Js7AXb9v&quot;,
+        &quot;number&quot;: 10
+      },
+      &quot;lastSeen&quot;: 1769771662536
+    }
+  ]
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
@@ -60,7 +66,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;pagination&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;register&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/netbeans/java/maven/lib/gson-2.13.1.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
@@ -169,7 +175,61 @@
       <option name="project" value="LOCAL" />
       <updated>1769170913824</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="review_rate+login/register">
+      <option name="closed" value="true" />
+      <created>1769770625017</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1769770625017</updated>
+    </task>
+    <task id="LOCAL-00012" summary="review_rate+login/register">
+      <option name="closed" value="true" />
+      <created>1769770653265</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1769770653265</updated>
+    </task>
+    <task id="LOCAL-00013" summary="review_rate+login/register">
+      <option name="closed" value="true" />
+      <created>1769770742445</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1769770742445</updated>
+    </task>
+    <task id="LOCAL-00014" summary="review_rate+login/register">
+      <option name="closed" value="true" />
+      <created>1769770750160</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1769770750160</updated>
+    </task>
+    <task id="LOCAL-00015" summary="review_rate+login/register">
+      <option name="closed" value="true" />
+      <created>1769770816764</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1769770816764</updated>
+    </task>
+    <task id="LOCAL-00016" summary="review_rate+login/register1">
+      <created>1769771017920</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1769771017920</updated>
+    </task>
+    <task id="LOCAL-00017" summary="review_rate+login/register2">
+      <created>1769772200431</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1769772200431</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -180,7 +240,10 @@
     <MESSAGE value="pagination" />
     <MESSAGE value="pagination-1" />
     <MESSAGE value="pagination-final" />
-    <option name="LAST_COMMIT_MESSAGE" value="pagination-final" />
+    <MESSAGE value="review_rate+login/register" />
+    <MESSAGE value="review_rate+login/register1" />
+    <MESSAGE value="review_rate+login/register2" />
+    <option name="LAST_COMMIT_MESSAGE" value="review_rate+login/register2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
