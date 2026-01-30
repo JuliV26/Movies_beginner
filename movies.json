@@ -7,12 +7,10 @@
     },
     "reviews": [
       {
-        "username": "Juliet",
         "rating": 9.0,
         "review": ""
       },
       {
-        "username": "Juliet",
         "rating": 0.0,
         "review": "a great dystopian adaptation to the original books"
       }
@@ -26,7 +24,6 @@
     },
     "reviews": [
       {
-        "username": "Juliet",
         "rating": 8.7,
         "review": ""
       }
@@ -48,7 +45,6 @@
     },
     "reviews": [
       {
-        "username": "Pavlin",
         "rating": 8.2,
         "review": ""
       }
@@ -62,7 +58,6 @@
     },
     "reviews": [
       {
-        "username": "Pavlin",
         "rating": 9.1,
         "review": ""
       }
@@ -76,7 +71,6 @@
     },
     "reviews": [
       {
-        "username": "Pavlin",
         "rating": 9.5,
         "review": ""
       }
@@ -392,7 +386,12 @@
       "genre": "War",
       "year": 2009
     },
-    "reviews": []
+    "reviews": [
+      {
+        "rating": 9.6,
+        "review": ""
+      }
+    ]
   },
   {
     "metadata": {
@@ -416,7 +415,12 @@
       "genre": "Thriller",
       "year": 2000
     },
-    "reviews": []
+    "reviews": [
+      {
+        "rating": 0.0,
+        "review": "excellent"
+      }
+    ]
   },
   {
     "metadata": {
@@ -440,7 +444,12 @@
       "genre": "Fantasy",
       "year": 2006
     },
-    "reviews": []
+    "reviews": [
+      {
+        "rating": 8.0,
+        "review": "hhdhfh"
+      }
+    ]
   },
   {
     "metadata": {
@@ -466,10 +475,37 @@
     },
     "reviews": [
       {
-        "username": "Juliet",
         "rating": 8.0,
+        "review": ""
+      },
+      {
+        "rating": 7.0,
         "review": ""
       }
     ]
+  },
+  {
+    "metadata": {
+      "title": "Spirited away",
+      "genre": "anime",
+      "year": 2001
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "It 2",
+      "genre": "horror",
+      "year": 2019
+    },
+    "reviews": []
+  },
+  {
+    "metadata": {
+      "title": "Labirinth",
+      "genre": "sci-fi",
+      "year": 2013
+    },
+    "reviews": []
   }
 ]
