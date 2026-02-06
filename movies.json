@@ -498,7 +498,12 @@
       "genre": "horror",
       "year": 2019
     },
-    "reviews": []
+    "reviews": [
+      {
+        "rating": 8.0,
+        "review": "dhjshdjshd"
+      }
+    ]
   },
   {
     "metadata": {
