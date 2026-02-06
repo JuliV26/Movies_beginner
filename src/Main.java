@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import com.google.gson.GsonBuilder;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class Main {
     static ArrayList<Movie> movies = new ArrayList<>();
@@ -12,7 +13,26 @@ public class Main {
     static final String USERS_FILE = "users.json";
     static Scanner scanner = new Scanner(System.in);
 
-    static Movie IndexVerification(int index) {
+
+    static void saveListToJson(String fileName, Object list) {
+        try (Writer writer = new FileWriter(fileName)) {
+            Gson gson = new GsonBuilder()
+                    .setPrettyPrinting()
+                    .create();
+            gson.toJson(list, writer);
+        } catch (IOException e) {
+            System.out.println("Грешка при запис в " + fileName);
+        }
+    }
+
+    static String readPassword() {
+        Console console = System.console();
+        if (console != null) {
+            return new String(console.readPassword("Парола: "));
+    } else { System.out.print("Парола: ");
+        return scanner.nextLine(); } }
+
+    static Movie getIndex(int index) {
 
         if (index >= 0 && index < movies.size()) {
 
@@ -28,7 +48,7 @@ public class Main {
 
     public static void main(String[] args) {
         loadFromJson();
-        loadJson_Users();
+        loadJsonUsers();
 
         while (true) {
             System.out.println("\n==== Начална страница ====");
@@ -49,12 +69,12 @@ public class Main {
                 case 2:
 
                     if (login()) {
-                        Menu_movies();
+                        MenuMovies();
                     }
 
                     break;
                 case 3:
-                    saveJson_Users();
+                    saveListToJson(USERS_FILE, users);
                     System.out.println("Данните са запазени. Довиждане!");
                     return;
                 default:
@@ -62,7 +82,7 @@ public class Main {
             }
         }
     }
-    static void Menu_movies() {
+    static void MenuMovies() {
         while (true) {
             System.out.println("\n==== Movie App ====");
             System.out.println("1. Добави филм");
@@ -80,7 +100,7 @@ public class Main {
                     break;
 
                 case 2:
-                    review_rate_Movie();
+                    reviewRate();
                     break;
 
                 case 3:
@@ -98,19 +118,21 @@ public class Main {
         System.out.print("Вашето име и фамилия: ");
         String name = scanner.nextLine();
 
-        System.out.print("Личен номер: ");
-        int number = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Телефонен  номер: ");
+        String number = scanner.nextLine();
+
 
         System.out.print("Имейл: ");
         String email = scanner.nextLine();
 
-        System.out.print("Парола: ");
-        String password = scanner.nextLine();
+        String password = readPassword();
 
-        User newUser = new User(name, number, email, password);
+        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt(10));
+
+        User newUser = new User(name, number, email, hashedPassword);
+
         users.add(newUser);
-        saveJson_Users();
+        saveListToJson(USERS_FILE, users);
 
         System.out.println("Регистрацията е успешна!");
 
@@ -119,15 +141,14 @@ public class Main {
 
     static boolean login () {
 
-        System.out.print("Вашето име и фамилия: ");
-        String name = scanner.nextLine();
+        System.out.print("Вашият имейл:");
+        String email = scanner.nextLine();
+        String password = readPassword();
 
-        System.out.print("Парола: ");
-        String password = scanner.nextLine();
 
         for (int i = 0; i < users.size(); i++) {
             User u = users.get(i);
-            if (u.name.equals(name) && u.password.equals(password)) {
+            if (u.email.equals(email) && BCrypt.checkpw(password, u.password)) {
 
                 System.out.println("Успешен вход!");
 
@@ -138,8 +159,6 @@ public class Main {
         System.out.println("Грешно име или парола!");
         return false;
     }
-
-      
 
 
     //  Добавяне на филм
@@ -158,12 +177,13 @@ public class Main {
         Movie movie = new Movie(metadata);
 
         movies.add(movie);
-        saveToJson();
+
+        saveListToJson(FILE_NAME, movies);
         System.out.println("Филмът е добавен!");
     }
 
     //  Добавяне на рейтинг и ревю
-    static void review_rate_Movie () {
+    static void reviewRate () {
         if (movies.isEmpty()) {
             System.out.println("Няма филми.");
             return;
@@ -175,15 +195,15 @@ public class Main {
         int index = scanner.nextInt() - 1;
         scanner.nextLine();
 
-        if (IndexVerification(index) == null)
+        if (getIndex(index) == null)
             return;
 
 
         System.out.println("\n==== Movie App ====");
-        System.out.print("1.Оцени от (0-10) ");
+        System.out.println("1.Оцени от (0-10) ");
         System.out.println("2.Напиши ревю ");
         System.out.println("3.И двете ");
-        System.out.print("4.Връщане към менюто ");
+        System.out.println("4.Връщане към менюто ");
         System.out.print("Избери: ");
 
 
@@ -195,7 +215,7 @@ public class Main {
 
         switch (choice) {
             case 1:
-                System.out.println("Оцени от (0-10): ");
+                System.out.print("Оцени от (0-10): ");
                 rating = scanner.nextDouble();
                 if (rating < 0 || rating > 10) {
                     System.out.println("Невалиден рейтинг.");
@@ -223,7 +243,8 @@ public class Main {
         }
         Review newReview = new Review(rating, reviewText);
         movies.get(index).reviews.add(newReview);
-        saveToJson();
+
+        saveListToJson(FILE_NAME, movies);
     }
 
     // Показване на всички филми
@@ -294,17 +315,6 @@ public class Main {
     }
 
 
-    // JSON Save
-    static void saveToJson () {
-        try (Writer writer = new FileWriter(FILE_NAME)) {
-            Gson gson = new GsonBuilder()
-                    .setPrettyPrinting()
-                    .create();
-            gson.toJson(movies, writer);
-        } catch (IOException e) {
-            System.out.println("Грешка при запис!");
-        }
-    }
 
     // JSON Load
     static void loadFromJson () {
@@ -313,8 +323,7 @@ public class Main {
 
         try (Reader reader = new FileReader(file)) {
             Gson gson = new Gson();
-            Type listType = new TypeToken<ArrayList<Movie>>() {
-            }.getType();
+            Type listType = new TypeToken<ArrayList<Movie>>() {}.getType();
             movies = gson.fromJson(reader, listType);
             if (movies == null) movies = new ArrayList<>();
         } catch (Exception e) {
@@ -369,7 +378,8 @@ public class Main {
                 sb.append("Ревюта: няма");
             } else {
                 sb.append("Ревюта:");
-                for (Review r : reviews) {
+                for (int i = 0; i < reviews.size(); i++) {
+                    Review r = reviews.get(i);  // вземаме текущия отзив от списъка 
                     sb.append("\n  - Оценка: " + r.rating + " | Коментар: " + r.review);
                 }
             }
@@ -378,21 +388,10 @@ public class Main {
 
 
     }
-    // Save Json - Users
-    static void saveJson_Users() {
-        try (Writer writer = new FileWriter(USERS_FILE)) {
-            Gson gson = new GsonBuilder()
-                    .setPrettyPrinting()
-                    .create();
-            gson.toJson(users, writer);
-        } catch (IOException e) {
-            System.out.println("Грешка при запис!");
 
-        }
-    }
     //Load From Json -Users
 
-    static void loadJson_Users () {
+    static void loadJsonUsers () {
         File file = new File(USERS_FILE);
         if (!file.exists()) return;
 
@@ -411,11 +410,11 @@ public class Main {
     //клас за User
     static class User {
         String name;
-        int number;
+        String number;
         String email;
         String password;
 
-        User(String name, int number, String email, String password) {
+        User(String name, String number, String email, String password) {
             this.name = name;
             this.number = number;
             this.email = email;
