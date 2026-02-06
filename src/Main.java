@@ -160,7 +160,7 @@ public class Main {
         return false;
     }
 
-    
+
     //  Добавяне на филм
     static void addMovie () {
         System.out.print("Име на филма: ");

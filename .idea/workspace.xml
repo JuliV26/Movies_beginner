@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83779a91-59cb-4b32-9150-b324cf51ae00" name="Changes" comment="review_rate+login/register">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie.iml" beforeDir="false" afterPath="$PROJECT_DIR$/movie.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movies.json" beforeDir="false" afterPath="$PROJECT_DIR$/movies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/users.json" afterDir="false" />
-    </list>
+    <list default="true" id="83779a91-59cb-4b32-9150-b324cf51ae00" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +13,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="login+register" />
+        <entry key="$PROJECT_DIR$" value="hashing+dry_code" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -240,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1769772318368</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="dry code for saveJson+ hasing">
+      <created>1770387941057</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1770387941057</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -254,7 +255,8 @@
     <MESSAGE value="review_rate+login/register" />
     <MESSAGE value="review_rate+login/register1" />
     <MESSAGE value="review_rate+login/register2" />
-    <option name="LAST_COMMIT_MESSAGE" value="review_rate+login/register2" />
+    <MESSAGE value="dry code for saveJson+ hasing" />
+    <option name="LAST_COMMIT_MESSAGE" value="dry code for saveJson+ hasing" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
