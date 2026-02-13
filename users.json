@@ -1,9 +1,14 @@
 [
-
   {
     "name": "Jana Ivanova",
     "number": "+359 678 567 333",
     "email": "jana_iv@gmail.com",
     "password": "$2a$10$46eoX2aFYGmXBSiwK3Iqw.788GsjKFE07vi2FJeIF51OY0eFKEccy"
+  },
+  {
+    "name": "Juliet Valcheva",
+    "number": "+359 876 567 758",
+    "email": "j.valcheva26@gmail.com",
+    "password": "$2a$10$pdbonCLrDEyJ2SPnEMGpdO7QvKtzvXCsMVuzaAA0f8a9bHs1KlS9O"
   }
 ]
