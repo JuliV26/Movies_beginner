@@ -226,7 +226,12 @@
       "genre": "Crime",
       "year": 1990
     },
-    "reviews": []
+    "reviews": [
+      {
+        "rating": 8.0,
+        "review": "a great movie"
+      }
+    ]
   },
   {
     "metadata": {
