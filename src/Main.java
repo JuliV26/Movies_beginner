@@ -24,18 +24,6 @@ public class Main {
             System.out.println("Грешка при запис в " + fileName);
         }
     }
-    static <T> T loadFromJson(String fileName, Type type) {
-        File file = new File(fileName);
-        if (!file.exists()) return null;
-
-        try (Reader reader = new FileReader(file)) {
-            Gson gson = new Gson();
-            return gson.fromJson(reader, type);
-        } catch (Exception e) {
-            System.out.println("Грешка при зареждане от " + fileName);
-            return null;
-        }
-    }
 
     static String readPassword() {
         Console console = System.console();
@@ -59,16 +47,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        movies=loadFromJson(FILE_NAME,new TypeToken<ArrayList<Movie>>() {
-        }.getType());
-        if (movies == null) {
-            movies = new ArrayList<>();
-        }
-        users=loadFromJson(USERS_FILE,new TypeToken<ArrayList<User>>() {
-        }.getType());
-        if (users == null) {
-            users = new ArrayList<>();
-        }
+        loadFromJson();
+        loadJsonUsers();
 
         while (true) {
             System.out.println("\n==== Начална страница ====");
@@ -94,9 +74,7 @@ public class Main {
 
                     break;
                 case 3:
-                    saveListToJson(FILE_NAME,movies);
                     saveListToJson(USERS_FILE, users);
-
                     System.out.println("Данните са запазени. Довиждане!");
                     return;
                 default:
@@ -195,8 +173,8 @@ public class Main {
         int year = scanner.nextInt();
         scanner.nextLine();
 
-
-        Movie movie = new Movie(title, genre, year);
+        Metadata metadata = new Metadata(title, genre, year);
+        Movie movie = new Movie(metadata);
 
         movies.add(movie);
 
@@ -332,11 +310,39 @@ public class Main {
     static void showMovieTitles () {
 
         for (int i = 0; i < movies.size(); i++) {
-            System.out.println((i + 1) + ". " +  movies.get(i).title);
+            System.out.println((i + 1) + ". " + movies.get(i).metadata.title);
         }
     }
 
 
+
+    // JSON Load
+    static void loadFromJson () {
+        File file = new File(FILE_NAME);
+        if (!file.exists()) return;
+
+        try (Reader reader = new FileReader(file)) {
+            Gson gson = new Gson();
+            Type listType = new TypeToken<ArrayList<Movie>>() {}.getType();
+            movies = gson.fromJson(reader, listType);
+            if (movies == null) movies = new ArrayList<>();
+        } catch (Exception e) {
+            System.out.println("Грешка при зареждане.");
+        }
+    }
+
+    // Metadata class-данните за филмите
+    static class Metadata {
+        String title;
+        String genre;
+        int year;
+
+        Metadata(String title, String genre, int year) {
+            this.title = title;
+            this.genre = genre;
+            this.year = year;
+        }
+    }
 
     // Review class
     static class Review {
@@ -353,16 +359,11 @@ public class Main {
 
     // Movie class
     static class Movie {
-        String title;
-        String genre;
-        int year;
+        Metadata metadata;
         ArrayList<Review> reviews;
 
-        Movie(String title, String genre, int year) {
-            this.title = title;
-            this.genre = genre;
-            this.year = year;
-
+        Movie(Metadata metadata) {
+            this.metadata = metadata;
             this.reviews = new ArrayList<>();
         }
 
@@ -370,8 +371,8 @@ public class Main {
         // напомняне- append добавя текст в края на вече съществуващо съдържание
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(title + " (" +year + ")\n");
-            sb.append("Жанр: " + genre + "\n");
+            sb.append(metadata.title + " (" + metadata.year + ")\n");
+            sb.append("Жанр: " + metadata.genre + "\n");
 
             if (reviews.isEmpty()) {
                 sb.append("Ревюта: няма");
@@ -388,6 +389,23 @@ public class Main {
 
     }
 
+    //Load From Json -Users
+
+    static void loadJsonUsers () {
+        File file = new File(USERS_FILE);
+        if (!file.exists()) return;
+
+        try (Reader reader = new FileReader(file)) {
+            Gson gson = new Gson();
+            Type listType = new TypeToken<ArrayList<User>>() {
+            }.getType();
+            users = gson.fromJson(reader, listType);
+            if (users == null) users = new ArrayList<>();
+        } catch (Exception e) {
+            System.out.println("Грешка при зареждане.");
+        }
+    }
+
 
     //клас за User
     static class User {
@@ -402,8 +420,7 @@ public class Main {
             this.email = email;
             this.password = password;
         }
-
-        }
     }
 
 
+}
