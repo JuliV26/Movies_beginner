@@ -5,8 +5,8 @@ second_name VARCHAR(100) NOT NULL,
 phone_number VARCHAR(15),
 email VARCHAR(100) UNIQUE NOT NULL,
 password VARCHAR(100) NOT NULL,
-created_on TIMESTAMP NOT NULL,
-last_login TIMESTAMP
+created_on TIMESTAMPTZ DEFAULT NOW() NOT NULL,
+last_login TIMESTAMPTZ DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS movies (
@@ -26,6 +26,4 @@ CREATE TABLE IF NOT EXISTS movies (
 	 FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-UPDATE users
-SET last_login= CURRENT_TIMESTAMP
-WHERE last_login IS NULL;
+
